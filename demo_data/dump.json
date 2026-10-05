@@ -1,0 +1,15 @@
+[
+  {
+    "species": "dog",
+    "name": "Rex",
+    "age": 4,
+    "temperature": 39.8
+  },
+  {
+    "species": "cat",
+    "name": "小白",
+    "age": 2,
+    "mood": "calm",
+    "temperature": 39.2
+  }
+]
