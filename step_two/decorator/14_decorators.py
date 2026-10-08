@@ -51,8 +51,3 @@ print(loud("kitty"))
 print(greet("bean"))
 print()
 
-# 装饰器里的 wrapper(*args, **kwargs),意思是"不管被包装的函数需要什么参数,我都先全部收下"。
-# 收下之后,再用 func(*args, **kwargs) 原样递给原函数。
-# def shout(func):
-#      def wrapper(*args, **kwargs):
-#           result = func()
