@@ -8,7 +8,7 @@ ok = ChatRequest(message="my dog", sessionId="s1")
 print(ok)
 
 try:
-     ChatRequest(message="my dog is very sick today", sessionId="s2")
+     ChatRequest(message="my dog is very sick today!", sessionId="s2")
 except ValidationError as e:
      print(e)
 
