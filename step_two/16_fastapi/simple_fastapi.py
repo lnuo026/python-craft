@@ -5,4 +5,4 @@ appTest = FastAPI()
 
 @appTest.get("/")
 def read_root():
-     return {"status": "ok"}
+     return {"status": "Hammer"}
