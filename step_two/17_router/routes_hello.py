@@ -1,0 +1,7 @@
+from fastapi import APIRouter
+
+routerTest = APIRouter()
+
+@routerTest.get("/Hello")
+def say_hello():
+     return {"message": "hello from the router"}
