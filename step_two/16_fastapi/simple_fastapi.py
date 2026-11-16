@@ -6,16 +6,18 @@ appTest = FastAPI()
 
 @appTest.get("/")
 def read_root():
-     return {"status": "Hammer"}
+     return {"status": "Hammer", "hi": "nora"}
 
 class Pet(BaseModel):
      name: str
-     age: int
+     age_next_year: int
 
-@appTest.post("/pets")
+
+# "返回声明格式"意思是:提前告诉 FastAPI"这个接口返回的 JSON 长什么样"。写法就是在装饰器里加 response_model=某个 pydantic 类。
+@appTest.post("/pets", response_model=Pet)
 # 函数的参数 pet,类型写成 Pet,这一句告诉 FastAPI"请求体应该符合 Pet 的格式"
 def create_pet(pet: Pet):
-     print("create_pet is executing")
-     return {"name": pet.name, "age_next_year": pet.age+1}
+     print("!!!!create_pet is executing!!!!")
+     return {"name": pet.name, "age_next_year": pet.age_next_year +1, "secret": "X"}
 
 

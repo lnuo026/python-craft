@@ -8,18 +8,18 @@ def shout(func):
 
 
 def hi(name):
-     return f"Hi, {name}"
+     return f"hello, {name}"
 
-Hi = shout(hi)
-print(Hi("mike"))
+Hello = shout(hi)
+print(Hello("mike"))
 print()
 
 
 @shout
 def hey(na):
-     return f"hey, {na}"
+     return f"hhhhhey, {na}"
 
-print(hey("Sam"))
+print(hey("SSSSam"))
 
 
 print(f"origin (Hi)function: {hi("mike")}")
