@@ -36,24 +36,6 @@ print(call_of(bye, "Mike"))
 print()
 
 
-# but call_of is not decorator yet;
-# 只改一个地方:让它不要立刻执行,而是返回一台"机器"
-# machine 是在 make_shouter 里面定义的一个函数,
-# make_shouter 最后 return machine,
-# 注意后面没有括号,返回的是函数本身。
-def make_shouter(func):
-     def machine(name):
-          return func(name).upper()
-     return machine
-
-# 这一行只造出了机器,还没有开始做 hello
-shout_gr = make_shouter(gr)
-# 等到 shout_gr("Tom"),机器才开始工作。shout_gr("Ann") 再按一次。
-# call_of(gr, "Tom") 每次都要把函数和名字一起传;
-# shout_gr("Tom") 只需要传名字,"调用哪个函数"已经被机器记住了
-print(shout_gr("Tom"))
-print(shout_gr("Ann"))
-
 
 
 # but call_of is not decorator yet;
