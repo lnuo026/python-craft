@@ -18,6 +18,6 @@ class ChatRequest(BaseModel):
 @app.post("/api/chat/message")
 def chat(req: ChatRequest):
      add_message(req.sessionID, "user", req.message)
-     
-     
-     return {"received":req.message, "sessionID": req.sessionID}
+     history = get_history(req.sessionID)
+     return {"sessionID":req.sessionID, "messageCount":len(history)}
+
