@@ -15,4 +15,4 @@ class ChatRequest(BaseModel):
 
 @app.post("/api/chat/message")
 def chat(req: ChatRequest):
-     return {"received":req.message, "Id": req.sessionID}
+     return {"received":req.message, "sessionID": req.sessionID}
