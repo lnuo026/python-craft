@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from services.session import add_message, get_history
+from services.triage import parse_triage
 
 app = FastAPI()
 
@@ -20,4 +21,5 @@ def chat(req: ChatRequest):
      add_message(req.sessionID, "user", req.message)
      history = get_history(req.sessionID)
      return {"sessionID":req.sessionID, "messageCount":len(history)}
+
 
