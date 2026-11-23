@@ -5,7 +5,6 @@ def add_message(session_id, role, text):
      if session_id not in history_by_session:
           history_by_session[session_id] = []
 
-
      message = {"role": role, "part": [{"text": text}]}
      
      # history_by_session[session_id] = [] 是一次字典赋值
@@ -13,16 +12,16 @@ def add_message(session_id, role, text):
      history_by_session[session_id].append(message)
 
 
-
 def get_history(session_id):
      if session_id not in history_by_session:
-          return []
-     
+          return []     
      return history_by_session[session_id]
      
 
+if __name__ == "__main__":
+     add_message(7, "hammer", "First message")
+     add_message(7, "bean", "Second message")
+     print(get_history(7))
+     print(get_history(8))
 
-
-add_message(7, "user", "First message")
-add_message(7, "user", "Second message")
-print(get_history(7))
+     

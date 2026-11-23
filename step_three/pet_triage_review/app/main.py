@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from services.session import add_message, get_history
 
 app = FastAPI()
 
@@ -13,6 +14,10 @@ class ChatRequest(BaseModel):
      message: str
      sessionID: int
 
+# 先存，再读，最后数。
 @app.post("/api/chat/message")
 def chat(req: ChatRequest):
+     add_message(req.sessionID, "user", req.message)
+     
+     
      return {"received":req.message, "sessionID": req.sessionID}
