@@ -18,8 +18,18 @@ class ChatRequest(BaseModel):
 # 先存，再读，最后数。
 @app.post("/api/chat/message")
 def chat(req: ChatRequest):
+     # session.py
      add_message(req.sessionID, "user", req.message)
+     # triage.py;
+     # return {"triage_level": level, "clean_text": clean_text}
+     raw = "[TRIAGE:GREEN] Test reply"   #define
+     parse = parse_triage(raw)
+     add_message(req.sessionID, "model", raw)
+     
      history = get_history(req.sessionID)
-     return {"sessionID":req.sessionID, "messageCount":len(history)}
-
+     return {"sessionID":req.sessionID, 
+             "messageCount":len(history),
+             "get_history":get_history(req.sessionID),
+             "triageLevel": parse["triage_level"],
+             "reply": parse["clean_text"]}
 

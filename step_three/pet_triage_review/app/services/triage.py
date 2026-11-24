@@ -1,12 +1,11 @@
 
-
 def parse_triage(raw):
      if "[TRIAGE:RED]" in raw:
           level = "red"
      elif "[TRIAGE:YELLOW]" in raw:
-          level="yellow"
+          level= "yellow"
      elif "[TRIAGE:GREEN]" in raw:
-          level="green"
+          level= "green"
      else:
           level="unknown"
 
@@ -22,7 +21,7 @@ def parse_triage(raw):
 
      return {"triage_level": level, "clean_text": clean_text}
 
-print(parse_triage("[TRIAGE:GREEN]"))
-print(parse_triage("[TRIAGE:BLUE]"))
-print(parse_triage("[TRIAGE:BLUE]  unknown   "))
+     print(parse_triage("[TRIAGE:GREEN]"))
+     print(parse_triage("[TRIAGE:BLUE]"))
+     print(parse_triage("[TRIAGE:BLUE]  unknown   "))
 
