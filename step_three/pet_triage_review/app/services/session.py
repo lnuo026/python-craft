@@ -1,11 +1,17 @@
 history_by_session = {}
 # user send two messages and retrives , {}
 
+
+
+def make_message(role, text):
+     return {"role": role, "text": text}
+
+
 def add_message(session_id, role, text):
      if session_id not in history_by_session:
           history_by_session[session_id] = []
 
-     message = {"role": role, "parts": [{"text": text}]}
+     message = make_message(role, text)
      
      # history_by_session[session_id] = [] 是一次字典赋值
      # history_by_session[7] = []  --> {7: []}:7 号会话已经建好，目前有零条消息。
@@ -18,10 +24,10 @@ def get_history(session_id):
      return history_by_session[session_id]
      
 
-if __name__ == "__main__":
-     add_message(7, "hammer", "First message")
-     add_message(7, "bean", "Second message")
-     print(get_history(7))
-     print(get_history(8))
+# if __name__ == "__main__":
+#      add_message(7, "hammer", "First message")
+#      add_message(7, "bean", "Second message")
+#      print(get_history(7))
+#      print(get_history(8))
 
      
