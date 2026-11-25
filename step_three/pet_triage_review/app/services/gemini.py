@@ -1,6 +1,6 @@
 from google import genai
 
-
+# Gemini 要求一条消息把「谁说的」放在 role 里，把「说了什么」放在 parts 里
 def call_gemini(contents):
      # Client` 是genai 里面的类
      # 进入下面这段代码时，准备好资源；离开这段代码时，自动收尾。

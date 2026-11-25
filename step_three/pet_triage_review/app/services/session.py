@@ -2,9 +2,9 @@ history_by_session = {}
 # user send two messages and retrives , {}
 
 
-
+# Gemini 要求一条消息把「谁说的」放在 role 里，把「说了什么」放在 parts 里
 def make_message(role, text):
-     return {"role": role, "text": text}
+     return {"role": role, "parts":[{"text": text}]}
 
 
 def add_message(session_id, role, text):

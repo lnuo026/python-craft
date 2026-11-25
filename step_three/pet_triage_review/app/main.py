@@ -30,8 +30,9 @@ def chat(req: ChatRequest):
      
      add_message(req.sessionID, "user", req.message)
      add_message(req.sessionID, "model", raw)
-     add_message(req.sessionID, "model", parse)
+
      
+     history = get_history(req.sessionID)
      return {"sessionID":req.sessionID, 
              "messageCount":len(history),
              "get_history":get_history(req.sessionID),
