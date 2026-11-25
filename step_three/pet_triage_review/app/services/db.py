@@ -19,3 +19,22 @@ if __name__ == "__main__":
           # "ping" 是传给方法的字符串，指定要执行 MongoDB 的 ping 命令，检查服务器能否回应。
           result = client.admin.command("ping")
           print(result["ok"])
+
+          database = client["pet_triage"]
+          chat_logs = database["chat_logs"]
+          record = {"sessionId": 1, "role": "user", "content": "hammer"}
+          # `insert_one` 是 PyMongo 的集合方法，意思是“插入一份文档”。它返回写入结果
+          # `.inserted_id` 从结果里取出这条记录的 ID，`print(...)` 把 ID 显示出来。
+          print(chat_logs.insert_one(record).inserted_id)
+
+          # = 表示默认值,调用时省略第四个参数
+          # -> None 表示这个函数预期不返回业务数据,只做事情。
+          #  : 表示函数体从下一行缩进处开始。
+          async def log_message(sessionId: str, role: str, content: str, triage_level: str = "unknown") -> None:
+               await log_message("91", "user", "something")
+               await log_message("34", "assistant", "test reply", "yellow")
+
+
+
+
+
