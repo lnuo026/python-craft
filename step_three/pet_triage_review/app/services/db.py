@@ -30,10 +30,16 @@ if __name__ == "__main__":
           # = 表示默认值,调用时省略第四个参数
           # -> None 表示这个函数预期不返回业务数据,只做事情。
           #  : 表示函数体从下一行缩进处开始。
-          async def log_message(sessionId: str, role: str, content: str, triage_level: str = "unknown") -> None:
+          async def log_message(sessionid: str, role: str, content: str, triage_level: str = "unknown") -> None:
+               await chat_logs.insert_one({
+                    "sessionId": sessionid,
+                    "role": role,
+                    "content":  content,
+                    "triageLevel": triage_level
+                    })
+
                await log_message("91", "user", "something")
                await log_message("34", "assistant", "test reply", "yellow")
-
 
 
 
